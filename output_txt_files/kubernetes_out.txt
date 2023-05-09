@@ -1,0 +1,10 @@
+(.devops) voclabs:~/environment/DevOps_Microservices/project-ml-microservice-kubernetes (master) $ kubectl get pods
+NAME     READY   STATUS    RESTARTS   AGE
+ml-api   1/1     Running   0          42s
+(.devops) voclabs:~/environment/DevOps_Microservices/project-ml-microservice-kubernetes (master) $ ./run_kubernetes.sh 
+Error from server (AlreadyExists): pods "ml-api" already exists
+NAME     READY   STATUS    RESTARTS   AGE
+ml-api   1/1     Running   0          47s
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
