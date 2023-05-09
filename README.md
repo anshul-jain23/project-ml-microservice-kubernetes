@@ -1,4 +1,4 @@
-<include a CircleCI status badge, here>
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/anshul-jain23/project-ml-microservice-kubernetes/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/anshul-jain23/project-ml-microservice-kubernetes/tree/main)
 
 ## Project Overview
 
@@ -35,6 +35,7 @@ python3 -m virtualenv --python=<path-to-Python3.7> .devops
 source .devops/bin/activate
 ```
 * Run `make install` to install the necessary dependencies
+* Run `make lint` to detect error in code via pylint and Hadolint for docker file.
 
 ### Running `app.py`
 
@@ -45,6 +46,18 @@ source .devops/bin/activate
 ### Kubernetes Steps
 
 * Setup and Configure Docker locally
-* Setup and Configure Kubernetes locally
+    * install docker as described in the [link](https://docs.docker.com/engine/install/ubuntu/).
+    * Run `./run_docker.sh`    
+    * Run `./make_prediction.sh` to make prediction
 * Create Flask app in Container
+    * Run `./run_docker.sh` to build and start the app container. 
+    * Run `./upload_docker.sh` to upload the app image to docker repositories.
+* Setup and Configure Kubernetes locally
+    * Run `minikube start` to start minikube
+    * Run `kubectl config view` to validate clusters
+    * Run `kubectl get pods` to see if pods are running or still creating.
 * Run via kubectl
+    * Run `./run_kubernetes.sh` to start service via pod
+    * Run `./make_prediction.sh` to make prediction
+* Stop Kubectl
+    * Run `minikube delete` to clean and delete the kubernetes clusters
